@@ -6,13 +6,13 @@ export enum LogLevel {
 }
 
 export interface ILogger {
-    debug(...data: any[]): never;
+    debug(...data: any[]): void;
 
-    info(...data: any[]): never;
+    info(...data: any[]): void;
 
-    warning(...data: any[]): never;
+    warning(...data: any[]): void;
 
-    error(...data: any[]): never;
+    error(...data: any[]): void;
 }
 
 export interface IFormatter {
