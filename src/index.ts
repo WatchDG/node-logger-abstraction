@@ -36,28 +36,28 @@ export class Logger {
     debug(...args: any[]) {
         const logLevel = LogLevel.DEBUG;
         if (!this.logLevels.has(logLevel)) return;
-        const fmt = this.formatter.format(logLevel, args);
+        const fmt = this.formatter.format(logLevel, ...args);
         this.inner.debug(...fmt);
     }
 
     info(...args: any[]) {
         const logLevel = LogLevel.INFO;
         if (!this.logLevels.has(logLevel)) return;
-        const fmt = this.formatter.format(logLevel, args);
+        const fmt = this.formatter.format(logLevel, ...args);
         this.inner.info(...fmt);
     }
 
     warning(...args: any[]) {
         const logLevel = LogLevel.WARNING;
         if (!this.logLevels.has(logLevel)) return;
-        const fmt = this.formatter.format(logLevel, args);
+        const fmt = this.formatter.format(logLevel, ...args);
         this.inner.warning(...fmt);
     }
 
     error(...args: any[]) {
         const logLevel = LogLevel.ERROR;
         if (!this.logLevels.has(logLevel)) return;
-        const fmt = this.formatter.format(logLevel, args);
+        const fmt = this.formatter.format(logLevel, ...args);
         this.inner.error(...fmt);
     }
 }
