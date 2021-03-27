@@ -1,0 +1,28 @@
+{
+  "name": "logger-abstraction",
+  "version": "0.1.0",
+  "description": "logger abstraction",
+  "keywords": [
+    "logger",
+    "abstraction"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Grigoriy Baranov",
+    "email": "baranov@w3m.co"
+  },
+  "repository": "github:WatchDG/node-logger-abstraction",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "npx tsc",
+    "prepare": "npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  }
+}
