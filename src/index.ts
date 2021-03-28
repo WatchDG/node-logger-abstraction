@@ -22,7 +22,7 @@ export interface IFormatter {
 export class Logger {
     private readonly inner: ILogger;
     private readonly formatter: IFormatter;
-    private readonly logLevels: Set<LogLevel>;
+    readonly logLevels: Set<LogLevel>;
 
     constructor(inner: ILogger, formatter: IFormatter) {
         this.inner = inner;
@@ -31,6 +31,26 @@ export class Logger {
             LogLevel.INFO,
             LogLevel.ERROR
         ]);
+    }
+
+    enableLogLevel(logLevel: LogLevel) {
+        this.logLevels.add(logLevel);
+    }
+
+    enableLogLevels(logLevels: LogLevel[]) {
+        logLevels.forEach((logLevel) => {
+            this.logLevels.add(logLevel);
+        })
+    }
+
+    disableLogLevel(logLevel: LogLevel) {
+        this.logLevels.delete(logLevel);
+    }
+
+    disableLogLevels(logLevels: LogLevel[]) {
+        logLevels.forEach((logLevel) => {
+            this.logLevels.delete(logLevel);
+        })
     }
 
     debug(...args: any[]) {
