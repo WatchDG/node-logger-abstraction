@@ -16,7 +16,7 @@ export interface ILogger {
 }
 
 export interface IFormatter {
-    format(logLevel: LogLevel, ...data: any[]): any[];
+    format(logLevel: LogLevel, ...data: any[]): unknown[];
 }
 
 export class Logger {
@@ -33,48 +33,48 @@ export class Logger {
         ]);
     }
 
-    enableLogLevel(logLevel: LogLevel) {
+    enableLogLevel(logLevel: LogLevel): void {
         this.logLevels.add(logLevel);
     }
 
-    enableLogLevels(logLevels: LogLevel[]) {
+    enableLogLevels(logLevels: LogLevel[]): void {
         logLevels.forEach((logLevel) => {
             this.logLevels.add(logLevel);
         })
     }
 
-    disableLogLevel(logLevel: LogLevel) {
+    disableLogLevel(logLevel: LogLevel): void {
         this.logLevels.delete(logLevel);
     }
 
-    disableLogLevels(logLevels: LogLevel[]) {
+    disableLogLevels(logLevels: LogLevel[]): void {
         logLevels.forEach((logLevel) => {
             this.logLevels.delete(logLevel);
         })
     }
 
-    debug(...args: any[]) {
+    debug(...args: any[]): void {
         const logLevel = LogLevel.DEBUG;
         if (!this.logLevels.has(logLevel)) return;
         const fmt = this.formatter.format(logLevel, ...args);
         this.inner.debug(...fmt);
     }
 
-    info(...args: any[]) {
+    info(...args: any[]): void {
         const logLevel = LogLevel.INFO;
         if (!this.logLevels.has(logLevel)) return;
         const fmt = this.formatter.format(logLevel, ...args);
         this.inner.info(...fmt);
     }
 
-    warning(...args: any[]) {
+    warning(...args: any[]): void {
         const logLevel = LogLevel.WARNING;
         if (!this.logLevels.has(logLevel)) return;
         const fmt = this.formatter.format(logLevel, ...args);
         this.inner.warning(...fmt);
     }
 
-    error(...args: any[]) {
+    error(...args: any[]): void {
         const logLevel = LogLevel.ERROR;
         if (!this.logLevels.has(logLevel)) return;
         const fmt = this.formatter.format(logLevel, ...args);

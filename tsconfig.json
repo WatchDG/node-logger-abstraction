@@ -5,7 +5,8 @@
     "sourceMap": false,
     "rootDir": "src",
     "outDir": "lib",
-    "declaration": true
+    "declaration": true,
+    "strict": true
   },
   "exclude": [
     "node_modules",
